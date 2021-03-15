@@ -156,15 +156,15 @@ func check_position():
 	var difference_x = 0
 	var difference_y = 0
 	
-	var x_total = cal.get_pos().x + cal.get_size().x + popup_container.get_pos().x + popup_container.get_size().y
+	var x_total = cal.get_position().x + cal.get_size().x + popup_container.get_position().x + popup_container.get_size().x
 	if(x_total > OS.get_window_size().x):
 		difference_x = x_total - OS.get_window_size().x
 	
-	var y_total = cal.get_pos().y + cal.get_size().y + popup_container.get_pos().y + popup_container.get_size().y
+	var y_total = cal.get_position().y + cal.get_size().y + popup_container.get_position().y + popup_container.get_size().y
 	if(y_total > OS.get_window_size().y):
 		difference_y = y_total - OS.get_window_size().y
 	
-	popup_container.set_pos(Vector2(popup_container.get_pos().x - difference_x, popup_container.get_pos().y - difference_y))
+	popup_container.set_position(Vector2(popup_container.get_position().x - difference_x, popup_container.get_position().y - difference_y))
 
 
 func go_prev_month():
@@ -215,7 +215,7 @@ func close_popup():
 	set_pressed(false)
 
 
-func toggled(is_pressed):
+func _toggled(is_pressed):
 	if(!is_pressed):
 		close_popup()
 	else:

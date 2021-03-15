@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://addons/calendar_button/calendar_script.gd" type="Script" id=1]
+[ext_resource path="res://Control.gd" type="Script" id=2]
 
 [sub_resource type="Image" id=5]
 data = {
@@ -31,6 +32,7 @@ size = Vector2( 32, 32 )
 [node name="Control" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,3 +44,6 @@ toggle_mode = true
 texture_normal = SubResource( 2 )
 texture_pressed = SubResource( 4 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
