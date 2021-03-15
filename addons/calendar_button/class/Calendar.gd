@@ -68,12 +68,15 @@ func get_number_of_days(m, y):
 # Returns the weekday (int)
 func get_weekday(d, m, y):
 	var t = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
-	y -= m < 3
+	var x = 0
+	if m < 3:
+		x = 1
+	y -= x
 	return (y + y/4 - y/100 + y/400 + t[m-1] + d) % 7
 
 # Returns the weekday name
 func get_weekday_name(d, m, y):
-	var day_num = get_week(d, m, y)
+	var day_num = get_weekday(d, m, y)
 	return weekday_name[day_num]
 
 

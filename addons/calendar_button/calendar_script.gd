@@ -33,7 +33,6 @@ var month_year_path = "PanelContainer/vbox/hbox_month_year/"
 var btn_img_path = "res://addons/calendar_button/btn_img/"
 
 # Classes
-var Calendar = preload("res://addons/calendar_button/class/Calendar.gd").new()
 var Date = preload("res://addons/calendar_button/class/Date.gd")
 
 # Nodes
@@ -90,14 +89,14 @@ func setup_calendar_button():
 	set_toggle_mode(true)
 	
 	# Set "Normal" Button Texture
-	var image_normal = Image()
+	var image_normal = Image.new()
 	image_normal.load(btn_img_path + "btn_32x32_03.png")
 	var image_texture_normal = ImageTexture.new()
 	image_texture_normal.create_from_image(image_normal)
 	set_normal_texture(image_texture_normal)
 
 	# Set "Pressed" Button Texture
-	var image_pressed = Image()
+	var image_pressed = Image.new()
 	image_pressed.load(btn_img_path + "btn_32x32_04.png")
 	var image_texture_pressed = ImageTexture.new()
 	image_texture_pressed.create_from_image(image_pressed)
@@ -106,6 +105,7 @@ func setup_calendar_button():
 
 # Load data on _init
 func load_data():
+	var Calendar = load("res://addons/calendar_button/class/Calendar.gd").new()
 	# Load todays date by default
 	selected_month = Calendar.month()
 	selected_year = Calendar.year()
@@ -117,6 +117,7 @@ func load_data():
 
 # Reloads popup data
 func refresh_data():
+	var Calendar = load("res://addons/calendar_button/class/Calendar.gd").new()	
 	# Update label with current month and year
 	label_month_year_node.set_text(str(Calendar.get_month_name(selected_month)) + " " + str(selected_year))
 	
